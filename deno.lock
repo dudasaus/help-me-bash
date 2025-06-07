@@ -1,6 +1,7 @@
 {
   "version": "5",
   "specifiers": {
+    "jsr:@std/cli@^1.0.19": "1.0.19",
     "jsr:@std/path@^1.1.0": "1.1.0",
     "npm:@langchain/core@~0.3.57": "0.3.57_zod@3.25.56",
     "npm:@langchain/langgraph@~0.3.1": "0.3.1_@langchain+core@0.3.57__zod@3.25.56",
@@ -9,6 +10,9 @@
     "npm:zod@^3.25.56": "3.25.56"
   },
   "jsr": {
+    "@std/cli@1.0.19": {
+      "integrity": "b3601a54891f89f3f738023af11960c4e6f7a45dc76cde39a6861124cba79e88"
+    },
     "@std/path@1.1.0": {
       "integrity": "ddc94f8e3c275627281cbc23341df6b8bcc874d70374f75fec2533521e3d6886"
     }
@@ -219,6 +223,7 @@
   },
   "workspace": {
     "dependencies": [
+      "jsr:@std/cli@^1.0.19",
       "jsr:@std/path@^1.1.0",
       "npm:@langchain/core@~0.3.57",
       "npm:@langchain/langgraph@~0.3.1",

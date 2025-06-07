@@ -20,24 +20,32 @@ Tools:
 
 - `deno task run` to run the script once.
 - `deno task compile` to create the `help-me-bash` executable.
+- Use the `--verbose` flag to print model messages.
 
 ## Example
 
 ```
-$ ./help-me-bash.exe 
+$ help-me-bash.exe
 Describe what you want to do, and I will try to create a bash command for it:
- Tell me what directory I am currently running this script from.
-
-... model thinking text and response message ...
-
+ Tell me the status of my current git repository.
 Do you want to run the following command?
-pwd
+git status
  [y/N] y
-✅ Granted run access to "pwd".
+✅ Granted run access to "git".
 Command exit code: 0
-stdout /c/Users/dudas/Documents/help-me-bash
+stdout:
 
-stderr
+ On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   deno.json
+        modified:   deno.lock
+        modified:   main.ts
+
+no changes added to commit (use "git add" and/or "git commit -a")
 ```
 
 ## Safety

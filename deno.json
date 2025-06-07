@@ -8,6 +8,7 @@
     "@langchain/core": "npm:@langchain/core@^0.3.57",
     "@langchain/langgraph": "npm:@langchain/langgraph@^0.3.1",
     "@langchain/ollama": "npm:@langchain/ollama@^0.2.1",
+    "@std/cli": "jsr:@std/cli@^1.0.19",
     "@std/path": "jsr:@std/path@^1.1.0",
     "zod": "npm:zod@^3.25.56"
   }

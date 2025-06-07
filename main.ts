@@ -2,6 +2,17 @@ import { ChatOllama } from "@langchain/ollama";
 import { tool } from "@langchain/core/tools";
 import { z } from "zod";
 import { ToolNode } from "@langchain/langgraph/prebuilt";
+import { parseArgs } from "@std/cli/parse-args";
+
+const flags = parseArgs(Deno.args, {
+  boolean: ["verbose"],
+});
+
+function verboseMessage(...args: any[]) {
+  if (flags.verbose) {
+    console.log(args);
+  }
+}
 
 const executeBash = tool((input) => {
   if (
@@ -16,8 +27,11 @@ const executeBash = tool((input) => {
   const command = new Deno.Command(cmd[0], { args });
   const { code, stdout, stderr } = command.outputSync();
   console.log("Command exit code:", code);
-  console.log("stdout", new TextDecoder().decode(stdout));
-  console.log("stderr", new TextDecoder().decode(stderr));
+  if (code === 0) {
+    console.log("stdout:\n\n", new TextDecoder().decode(stdout));
+  } else {
+    console.log("stderr\n\n", new TextDecoder().decode(stderr));
+  }
   return;
 }, {
   name: "execute_bash_command",
@@ -48,7 +62,7 @@ const response = await model.invoke(
   `Run a bash command to will accomplish the following task. Don't use pipes.\n\n${message}`,
 );
 
-console.log(response.content);
-console.log(response.tool_calls);
+verboseMessage(response.content);
+verboseMessage(response.tool_calls);
 
 await toolNode.invoke({ messages: [response] });
