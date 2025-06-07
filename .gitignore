@@ -1,0 +1,5 @@
+node_modules/
+*.exe
+help-me-bash.*
+help-me-bash
+*.tmp

@@ -1,0 +1,14 @@
+{
+  "tasks": {
+    "run": "deno run --allow-env --allow-net=localhost:11434 main.ts",
+    "compile": "deno compile --output help-me-bash --allow-env --allow-net=localhost:11434 main.ts",
+    "dev": "deno run --allow-env --allow-net --watch main.ts"
+  },
+  "imports": {
+    "@langchain/core": "npm:@langchain/core@^0.3.57",
+    "@langchain/langgraph": "npm:@langchain/langgraph@^0.3.1",
+    "@langchain/ollama": "npm:@langchain/ollama@^0.2.1",
+    "@std/path": "jsr:@std/path@^1.1.0",
+    "zod": "npm:zod@^3.25.56"
+  }
+}
