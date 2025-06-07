@@ -8,6 +8,7 @@ const flags = parseArgs(Deno.args, {
   boolean: ["verbose"],
 });
 
+// deno-lint-ignore no-explicit-any
 function verboseMessage(...args: any[]) {
   if (flags.verbose) {
     console.log(args);
