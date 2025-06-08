@@ -60,7 +60,7 @@ const message = prompt(
 if (!message) Deno.exit(1);
 
 const response = await model.invoke(
-  `Run a bash command to will accomplish the following task. Don't use pipes.\n\n${message}`,
+  `Run a bash command that will accomplish the following task. Don't use pipes.\n\n${message}`,
 );
 
 verboseMessage(response.content);
